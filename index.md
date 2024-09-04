@@ -1,6 +1,7 @@
 ---
 layout: base
 title: Student Home 
+image: /images/mario_animation.png
 description: Home Page
 hide: true
 ---
