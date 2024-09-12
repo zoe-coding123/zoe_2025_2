@@ -5,6 +5,7 @@ image: /images/mario_animation.png
 description: Home Page
 hide: true
 ---
+{% include nav/home.html %}
 
 My journey starts here.
 
