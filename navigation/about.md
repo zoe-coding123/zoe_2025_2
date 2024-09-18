@@ -74,3 +74,5 @@ permalink: /about/
 </script>
 
 ### Journey through Life
+
+- Class of 2027
