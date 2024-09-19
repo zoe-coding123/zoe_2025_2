@@ -252,3 +252,15 @@ Classroom work time is 3-4 hours per week. Homework expectations are approximate
 ![csa]({{site.baseurl}}/images/course-brag/csa24.png)
 
 ![qr]({{site.baseurl}}/images/course-brag/qr.png)
+
+<!-- Use this script to add comments to your blog posts manually -->
+
+<script src="https://utteranc.es/client.js"
+        repo="nighthawkcoders/portfolio_2025"
+        issue-term="title"
+        label="blogpost-comment"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+-->
