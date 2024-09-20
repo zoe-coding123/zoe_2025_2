@@ -78,7 +78,7 @@ permalink: /about/
 - Class of 2027
 
 <script src="https://utteranc.es/client.js"
-        repo="nighthawkcoders/portfolio_2025"
+        repo="nighthawkcoders/zoe_2025_2"
         issue-term="title"
         label="blogpost-comment"
         theme="github-light"
