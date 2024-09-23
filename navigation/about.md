@@ -77,8 +77,9 @@ permalink: /about/
 
 - Class of 2027
 
+<!-- Use this script to add comments to your blog posts manually-->
 <script src="https://utteranc.es/client.js"
-        repo="zoe_2025_2"
+        repo="zoe-coding123/zoe_2025_2"
         issue-term="title"
         label="blogpost-comment"
         theme="github-light"
