@@ -234,29 +234,23 @@ Classroom work time is 3-4 hours per week. Homework expectations are approximate
 
 ![csp]({{site.baseurl}}/images/course-brag/csp24.png)
 
-## Computer Science "A" 1,2 and Data Structures 2; Grades 11-12
->
-> AP Computer Science A is an in-depth course that focuses on programming, algorithms, and data structures. The AP Computer Science 'A' curriculum is integrated into this course, which covers the Java programming language and topics such as fundamentals of programming, using objects, writing classes, arrays, array lists, 2D arrays, inheritance, and recursion. Students will gain understanding through analysis, coding, and individual and team projects. The course will establish fluency in Java, utilize JavaScript, and work with Linux.
-
-- Prerequisites: a rising 11th or 12th grader
-  - AP Computer Science Principles 1,2 and Data Structures 1
-  - or a teacher recommendation with an expectation of understanding JavaScript, OOP, Linux, and Data Structures; foundation in team projects, awareness of agile methodology and GitHub source control.
-- Meets UC/CSU G requirements, also an alternate for 4th year C requirement
-
-> Data Structures 2 serves as the third trimester for the Computer Science "A" course and is the capstone for the Del Norte Computer Science Pathway. It is designed as a companion to AP Computer Science 'A'. This course focuses on basic data structures, algorithms, and includes AP preparation for College Board multiple-choice questions (MCQs) and free-response questions (FRQs). The course utilizes the JavaScript and Java languages to instruct on object-oriented programming paradigm programming and design. Topics covered include searching, sorting, hashing, algorithm analysis, collections, lists, stacks, queues, trees, sets, dictionaries, and graphs. The course concludes with team-oriented project-based learning and a final project.
-
-- Prerequisites: AP Computer Science ‘A’ 1,2
-- Meets UC/CSU G requirements
-- Data Structures 1,2 receives Articulated College Credit to Mira Costa CC for "CS 113: Basic Data Structures and Algorithms".  Mira Costa CC requires and provides free registration to receive UC college credit.
-
-![csa]({{site.baseurl}}/images/course-brag/csa24.png)
-
-![qr]({{site.baseurl}}/images/course-brag/qr.png)
+<div>
+    <!-- notice how tags can be put INSIDE eachother -->
+    <p>Test text to go with my text button</p>
+    <button>test button</button>
+</div>
+<br>
+<div>
+  <a href="chrome://dino">Dinosaur Game</a>
+  <br>
+  <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a>
+  <p>Just links to some casual games that pretty much everybody already knows about but it's here.</p>
+</div>
 
 <!-- Use this script to add comments to your blog posts manually -->
 
 <script src="https://utteranc.es/client.js"
-        repo="nighthawkcoders/zoe_2025_2"
+        repo="zoe-coding123/zoe_2025_2"
         issue-term="title"
         label="blogpost-comment"
         theme="github-light"
