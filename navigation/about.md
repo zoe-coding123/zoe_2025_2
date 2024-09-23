@@ -38,8 +38,8 @@ permalink: /about/
     var living_in_the_world = [
         {"flag": "0/01/Flag_of_California.svg", "greeting": "Hey", "description": "California - forever"},
         {"flag": "a/a4/Flag_of_the_United_States.svg", "greeting": "Hi", "description": "America - all my life"},
-        {"flag": "b/be/Flag_of_England.svg", "greeting": "Alright mate", "description": "England - 2 years"},
-        {"flag": "e/ef/Flag_of_Hawaii.svg", "greeting": "Aloha", "description": "Hawaii - 2 years"},
+        //{"flag": "b/be/Flag_of_England.svg", "greeting": "Alright mate", "description": "England - 2 years"},
+        //{"flag": "e/ef/Flag_of_Hawaii.svg", "greeting": "Aloha", "description": "Hawaii - 2 years"},
     ]; 
     
     // 3a. Consider how to update style count for size of container
@@ -78,11 +78,10 @@ permalink: /about/
 - Class of 2027
 
 <script src="https://utteranc.es/client.js"
-        repo="nighthawkcoders/zoe_2025_2"
+        repo="zoe_2025_2"
         issue-term="title"
         label="blogpost-comment"
         theme="github-light"
         crossorigin="anonymous"
         async>
 </script>
--->
