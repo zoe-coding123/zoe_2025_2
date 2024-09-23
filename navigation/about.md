@@ -4,6 +4,19 @@ title: About
 permalink: /about/
 ---
 
+### Some Things About Me
+
+- Class of 2027
+- I have a lot of interests
+    - singing
+    - dancing
+    - horseback riding
+    - art
+- Those are my main hobbies but I have more interests
+- My favorite color is purple
+- I have a younger brother
+- No pets but I wish I had a dog. I like cats too though.
+
 <style>
     /* Style looks pretty compact, trace grid-container and grid-item in the code */
     .grid-container {
@@ -72,10 +85,6 @@ permalink: /about/
         container.appendChild(gridItem);
     }
 </script>
-
-### Journey through Life
-
-- Class of 2027
 
 <!-- Use this script to add comments to your blog posts manually-->
 <script src="https://utteranc.es/client.js"
