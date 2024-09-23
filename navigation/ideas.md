@@ -12,3 +12,4 @@ permalink: /ideas/
 - I like games with story
 - I think I would want to make an rpg if possible
 - I also like rhythm games
+- I'm also interested in graphic design
