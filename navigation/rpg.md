@@ -1,7 +1,7 @@
 ---
 layout: base
 title: RPG
-permalink: /rpg/
+permalink: /rpg.md/
 ---
 
 <canvas id='gameCanvas'></canvas>
