@@ -1,14 +1,14 @@
 ---
 layout: base
-title: RPG
-permalink: /rpg.md/
+title: RPGv0.0
+permalink: /rpgv0.0.md/
 ---
 
 <canvas id='gameCanvas'></canvas>
 
 <script type="module">
-    import GameLevelWater from '{{site.baseurl}}/assets/js/rpg/GameLevelWater.js';
-    import GameControl from '{{site.baseurl}}/assets/js/rpg/GameControl.js';
+    import GameLevelWater from '{{site.baseurl}}/assets/js/rpgv0.0/GameLevelWater.js';
+    import GameControl from '{{site.baseurl}}/assets/js/rpgv0.0/GameControl.js';
 
     const path = "{{site.baseurl}}";
     const gameLevelWater = new GameLevelWater(path);

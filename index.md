@@ -192,47 +192,32 @@ My journey starts here.
 
 </script>
 
-## Investing in Your Technical Future
+### Game Progress
 
-> Explore the Computer Science Pathway at Del Norte High School and invest in your technical skills. All Del Norte CompSci classes are designed to provide a real-world development experience. Class time includes tech talks (lectures), peer collaboration, communication with teachers, critical thinking while coding, and creativity in projects. Grading is focused on time invested, participation with peers, and engagement in learning.
+Here is my progress through game coding, click to see these online
 
-- Introduction to concepts and requirements by the teacher
-- Project-based learning with teacher support, performing Agile/Scrum development
-- Coding, frontend, backend, devops, version control and algorithmic thinking
-- Creativity, research, design, data structures, and utilizing ChatGPT
-- Performing team work, team communication and collaboration, peer reviews/grading
-- Focus on tehnical communications through project presentations and student led teaching
-- Grades are on projects, learnt concepts, and live reviews between student(s) and teacher
-
-Classroom work time is 3-4 hours per week. Homework expectations are approximately 2-3 hours per week.  Homework is scheduled over a Sprint, approximately 2-4 weeks.  Time lost is extremely hard to make up as all materials are cummulative.
-
-![ccr]({{site.baseurl}}/images/course-brag/ccr.png)
-
-## Computer Science and Software Engineering (CSSE) 1,2; Grades 9-12
-
-> CSSE 1,2 prepares students for the AP Computer Science pathway. This course focuses on teaching the JavaScript programming language, object-oriented programming and inheritance, and developing algorithmic thinking skills. Through game development projects, students will engage in engineering skills, learn fundamentals of programming, work with data structures, and foster collaboration skills with their peers. Tech talks will be conducted by teachers to introduce concepts, provide guidance on tools, and support ideas to establish development requirements. By performing development and exploration, this course aims to raise students' awareness of the tremendous capabilities of computers and software engineering skills across various fields.
-
-- Prerequisites: None
-- Meets UC/CSU G requirements
-- CSSE 1,2 receives Articulated College Credit to Mira Costa CC CS 111: "Introduction to Computer Science".  Mira Costa CC requires and provides free registration to receive UC college credit.
-
-![csse]({{site.baseurl}}/images/course-brag/csse.png)
-
-## Computer Science Principles 1,2 and Data Structures 1; Grades 10-12
->
-> Computer Science Principles is designed as a college-level introduction to computer science. The AP Computer Science Principles curriculum is integrated into this course, covering creative development, data, algorithms and programming, computer systems and networks, and the impact of computing. Students will work on individual and team projects to build computer systems, write algorithms, analyze for correctness, and engage in discussions about solutions. The course will establish fluency in Python, utilize prerequisite knowledge in JavaScript, and develop fluency in Linux.
-
-- Prerequisites:
-  - rising 10th graders: Computer Science and Software Engineering (CSSE)
-  - rising 11th-12th graders: GPA above 3.5 and expectation of experience with JavaScript or other programming languages
-- Meets UC/CSU G requirements, also an alternate for 3rd year D requirement
-
-> Data Structures 1 serves as the third trimester for the Computer Science Principles course. It is the capstone for non-computer science majors/minors and prepares other students to complete the PUSD computer science pathway. Data Structures 1 focuses on creating computer programs independently and includes AP review and AP project time. The course utilizes JavaScript and Python languages to instruct on the imperative and object-oriented programming paradigms. Topics covered include graphical user interfaces, input and output, lists, dictionaries, databases, searching, sorting, and algorithm analysis.
-
-- Prerequisites: AP Computer Science Principles 1,2
-- Meets UC/CSU G requirements
-
-![csp]({{site.baseurl}}/images/course-brag/csp24.png)
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <a href="{{site.baseurl}}/snake" style="text-decoration: none;">
+        <div style="background-color: #00FF00; color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Snake Game
+        </div>
+    </a>
+<a href="{{site.baseurl}}/rpgv0.0" style="text-decoration: none;">
+        <div style="background-color: #FF0000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Turtle v0.0
+        </div>
+    </a>
+    <a href="{{site.baseurl}}/rpgv0.1" style="text-decoration: none;">
+        <div style="background-color: #FF8800; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Turtle v0.1
+        </div>
+    </a>
+    <a href="{{site.baseurl}}/rpgv0.2" style="text-decoration: none;">
+        <div style="background-color: #FFFF00; color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Turtle v0.2
+        </div>
+    </a>
+</div>
 
 <div>
     <!-- notice how tags can be put INSIDE eachother -->
