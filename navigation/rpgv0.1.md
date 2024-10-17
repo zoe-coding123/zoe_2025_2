@@ -1,7 +1,7 @@
 ---
 layout: base
 title: RPGv0.1
-permalink: /rpg0.1.md/
+permalink: /rpg0.1/
 ---
 
 <canvas id='gameCanvas'></canvas>

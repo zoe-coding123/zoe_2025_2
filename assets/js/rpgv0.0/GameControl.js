@@ -1,6 +1,6 @@
 import GameEnv from './GameEnv.js';
-import GameLevelSquares from './GameLevelSquares.js';
-import GameLevelWater from './GameLevelWater.js';
+import Background from './Background.js';
+import Player from './Player.js';
 
 /**
  * The GameControl object manages the game.
@@ -13,46 +13,30 @@ import GameLevelWater from './GameLevelWater.js';
  * making it easier to manage game states, handle events, and maintain the overall flow of the game.
  * 
  * @type {Object}
- * @property {Player} turtle - The player object.
- * @property {Player} fish 
+ * @property {Player} player - The player object.
  * @property {function} start - Initialize game assets and start the game loop.
  * @property {function} gameLoop - The game loop.
  * @property {function} resize - Resize the canvas and player object when the window is resized.
  */
 const GameControl = {
 
-    start: function(path) {
-        // Create the game environment
-        GameEnv.create();
-        // Load the game level
-        const gameLevel = new GameLevelWater(path);
-        // Prepare game objects for the level
-        for (let object of gameLevel.objects) {
-            if (!object.data) object.data = {};
-            GameEnv.gameObjects.push(new object.class(object.data));
-        }
-        // Start the game loop
+    start: function(assets = {}) {
+        GameEnv.create(); // Create the Game World, this is pre-requisite for all game objects.
+        this.background = new Background(assets.image || null);
+        this.player = new Player(assets.sprite || null);
         this.gameLoop();
     },
 
     gameLoop: function() {
-         // Clear the canvas
-        GameEnv.clear();
-        // Update the game objects
-        for (let object of GameEnv.gameObjects) {
-            object.update(); // Update the game objects
-        }
-        // Recursively call the game loop
+        GameEnv.clear(); // Clear the canvas
+        this.background.draw();
+        this.player.update();
         requestAnimationFrame(this.gameLoop.bind(this));
     },
 
     resize: function() {
-        // Resize the game environment
-        GameEnv.resize(); 
-        // Resize the game objects
-        for (let object of GameEnv.gameObjects) {
-            object.resize(); // Resize the game objects
-        }
+        GameEnv.resize(); // Adapts the canvas to the new window size, ie a new Game World.
+        this.player.resize();
     }
 };
 
