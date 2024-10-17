@@ -212,7 +212,7 @@ Here is my progress through game coding, click to see these online
             Turtle v0.1
         </div>
     </a>
-    <a href="{{site.baseurl}}/assets/js/rpgv0.2" style="text-decoration: none;">
+    <a href="{{site.baseurl}}/rpgv0.2" style="text-decoration: none;">
         <div style="background-color: #FFFF00; color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
             Turtle v0.2
         </div>
