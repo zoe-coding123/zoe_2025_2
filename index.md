@@ -219,6 +219,7 @@ Here is my progress through game coding, click to see these online
     </a>
 </div>
 
+
 ### College Articulation
 
 > Here is my preparation for college topics, click to review my blogs

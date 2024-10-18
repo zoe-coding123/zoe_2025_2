@@ -1,16 +1,8 @@
-import Player from './Player.js';
+import Player from "./Player.js";
 
-class Turtle extends Player {
-    constructor(data = null) {
-        super(data);
-    }
-
-    update() {
-        super.update();
-    }
-
-    resize() {
-        super.resize();
+class PlayerTwo extends Player {
+    constructor(imageSrc = null) {
+        super(imageSrc);
     }
 
     handleKeyDown({ keyCode }) {
@@ -50,6 +42,7 @@ class Turtle extends Player {
                 break;
         }
     }
+
 }
 
-export default Turtle;
+export default PlayerTwo;

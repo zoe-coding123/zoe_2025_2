@@ -1,7 +1,6 @@
 import GameEnv from './GameEnv.js';
-import Background from './Background.js';
-import Fish from './PlayerFish.js';
-import Turtle from './PlayerTurtle.js';
+import GameLevelSquares from './GameLevelSquares.js';
+import GameLevelWater from './GameLevelWater.js';
 
 /**
  * The GameControl object manages the game.
@@ -22,10 +21,14 @@ import Turtle from './PlayerTurtle.js';
  */
 const GameControl = {
 
-    start: function(gameLevel = {}) {
-        GameEnv.create(); // Create the Game World, this is pre-requisite for all game objects.
+    start: function(path) {
+        // Create the game environment
+        GameEnv.create();
+        // Load the game level
+        // const gameLevel = new GameLevelSquares(path)
+        const gameLevel = new GameLevelWater(path)
+        // Load the game objects for the level
         for (let object of gameLevel.objects) {
-            // Create and save the game objects
             GameEnv.gameObjects.push(new object.class(object.data));
         }
         // Start the game loop
@@ -33,15 +36,20 @@ const GameControl = {
     },
 
     gameLoop: function() {
-        GameEnv.clear(); // Clear the canvas
+         // Clear the canvas
+        GameEnv.clear();
+        // Update the game objects
         for (let object of GameEnv.gameObjects) {
             object.update(); // Update the game objects
         }
+        // Recursively call the game loop
         requestAnimationFrame(this.gameLoop.bind(this));
     },
 
     resize: function() {
-        GameEnv.resize(); // Adapts the canvas to the new window size
+        // Resize the game environment
+        GameEnv.resize(); 
+        // Resize the game objects
         for (let object of GameEnv.gameObjects) {
             object.resize(); // Resize the game objects
         }

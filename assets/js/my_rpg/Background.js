@@ -1,5 +1,7 @@
 import GameEnv from './GameEnv.js';
 
+/* Background class for primary background
+*/
 export class Background {
     constructor(data = null) {
         if (data.src) {
@@ -10,9 +12,7 @@ export class Background {
         }
     }
 
-    /* To draws are used to capture primary frame and wrap around to next frame
-     * x to y is primary draw
-     * x + width to y is wrap around draw
+    /* This method draws to GameEnv context, primary background
     */
     draw() {
         const ctx = GameEnv.ctx;
@@ -23,16 +23,20 @@ export class Background {
             // Draw the background image scaled to the canvas size
             ctx.drawImage(this.image, 0, 0, width, height);
         } else {
-            // Fill the canvas with white if no background image is provided
+            // Fill the canvas with fillstyle color if no image is provided
             ctx.fillStyle = '#87CEEB';
             ctx.fillRect(0, 0, width, height);
         }
     }
 
+    /* For primary background, update is the same as draw
+    */
     update() {
         this.draw();
     }
 
+    /* For primary background, resize is the same as draw
+    */
     resize() {
         this.draw();
     }

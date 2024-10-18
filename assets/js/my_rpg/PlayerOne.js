@@ -1,16 +1,8 @@
 import Player from './Player.js';
 
-class Fish extends Player {
+class PlayerOne extends Player {
     constructor(data = null) {
         super(data);
-    }
-
-    update() {
-        super.update();
-    }
-
-    resize() {
-        super.resize();
     }
 
     handleKeyDown({ keyCode }) {
@@ -57,6 +49,7 @@ class Fish extends Player {
                 break;
         }
     }
+
 }
 
-export default Fish;
+export default PlayerOne;
