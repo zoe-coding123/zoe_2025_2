@@ -4,7 +4,6 @@ import GameEnv from './GameEnv.js';
 const SCALE_FACTOR = 25; // 1/nth of the height of the canvas
 const STEP_FACTOR = 100; // 1/nth, or N steps up and across the canvas
 const ANIMATION_RATE = 1; // 1/nth of the frame rate
-const INIT_POSITION = { x: 0, y: 0 };
 
 /**
  * Player is a dynamic class that manages the data and events for a player object.
@@ -18,7 +17,7 @@ const INIT_POSITION = { x: 0, y: 0 };
  * making the code more modular and easier to maintain. By using this pattern, we can create
  * multiple instances of the Player class, each with its own state and behavior.
  * 
- * @abstract Player
+ * @class Player
  * @property {Object} position - The current position of the player.
  * @property {Object} velocity - The current velocity of the player.
  * @property {Object} scale - The scale of the player based on the game environment.
@@ -43,40 +42,41 @@ class Player {
     /**
      * The constructor method is called when a new Player object is created.
      * 
-     * @param {Object|null} data - The sprite data for the player. If null, a default red square is used.
+     * @param {Object|null} sprite - The sprite data for the player. If null, a default red square is used.
      */
-    constructor(data = null) {
+    constructor(sprite = null) {
         // Initialize the player's scale based on the game environment
         this.scale = { width: GameEnv.innerWidth, height: GameEnv.innerHeight };
-        
+
         // Check if sprite data is provided
-        if (data && data.src) {
-            this.scaleFactor = data.SCALE_FACTOR || SCALE_FACTOR;
-            this.stepFactor = data.STEP_FACTOR || STEP_FACTOR;
-            this.animationRate = data.ANIMATION_RATE || ANIMATION_RATE;
-            this.position = data.INIT_POSITION || INIT_POSITION;
+        if (sprite) {
+            this.scaleFactor = sprite.data.SCALE_FACTOR || SCALE_FACTOR;
+            this.stepFactor = sprite.data.STEP_FACTOR || STEP_FACTOR;
+            this.animationRate = sprite.data.ANIMATION_RATE || ANIMATION_RATE;
     
             // Load the sprite sheet
             this.spriteSheet = new Image();
-            this.spriteSheet.src = data.src;
+            this.spriteSheet.src = sprite.src;
 
             // Initialize animation properties
             this.frameIndex = 0; // index reference to current frame
             this.frameCounter = 0; // count each frame rate refresh
             this.direction = 'down'; // Initial direction
-            this.spriteData = data;
+            this.spriteData = sprite.data;
         } else {
             // Default to red square
             this.scaleFactor = SCALE_FACTOR;
             this.stepFactor = STEP_FACTOR;
             this.animationRate = ANIMATION_RATE;
-            this.position = INIT_POSITION;
-
             // No sprite sheet for default
             this.spriteSheet = null;
         }
 
+        // Set the initial size of the player
+        this.size = GameEnv.innerHeight / this.scaleFactor;
+
         // Initialize the player's position and velocity
+        this.position = { x: 0, y: GameEnv.innerHeight - this.size };
         this.velocity = { x: 0, y: 0 };
 
         // Set the initial size and velocity of the player
@@ -208,10 +208,26 @@ class Player {
      * This method updates the player's velocity based on the key pressed.
      * 
      * @param {Object} event - The keydown event object.
-     * @abstract
      */
     handleKeyDown({ keyCode }) {
-        throw new Error('Method "handleKeyDown()" must be implemented');
+        switch (keyCode) {
+            case 87: // 'W' key
+                this.velocity.y -= this.yVelocity;
+                this.direction = 'up';
+                break;
+            case 65: // 'A' key
+                this.velocity.x -= this.xVelocity;
+                this.direction = 'left';
+                break;
+            case 83: // 'S' key
+                this.velocity.y += this.yVelocity;
+                this.direction = 'down';
+                break;
+            case 68: // 'D' key
+                this.velocity.x += this.xVelocity;
+                this.direction = 'right';
+                break;
+        }
     }
 
     /**
@@ -220,13 +236,23 @@ class Player {
      * This method stops the player's velocity based on the key released.
      * 
      * @param {Object} event - The keyup event object.
-     * @abstract
      */
     handleKeyUp({ keyCode }) {
-        throw new Error('Method "handleKeyUp()" must be implemented');
+        switch (keyCode) {
+            case 87: // 'W' key
+                this.velocity.y = 0;
+                break;
+            case 65: // 'A' key
+                this.velocity.x = 0;
+                break;
+            case 83: // 'S' key
+                this.velocity.y = 0;
+                break;
+            case 68: // 'D' key
+                this.velocity.x = 0;
+                break;
+        }
     }
-
- 
 }
 
 export default Player;
