@@ -203,8 +203,8 @@ My journey starts here.
     <a href="https://zoe-coding123.github.io/zoe_2025_2">
         <img src="https://img.shields.io/badge/GitHub%20Pages-327FC7?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages">
     </a>
-    <a href="https://kasm.nighthawkcodingsociety.com/">
-        <img src="https://img.shields.io/badge/KASM-0078D4?style=for-the-badge&logo=kasm&logoColor=white" alt="KASM">
+    <a href="{{site.baseurl}}/kasm/quick/setup">
+        <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu">
     </a>
     <a href="https://vscode.dev/">
         <img src="https://img.shields.io/badge/VSCode-007ACC?style=for-the-badge&logo=visual-studio-code&logoColor=white" alt="VSCode">
@@ -222,22 +222,30 @@ Here is my progress through game coding, click to see these online
         </div>
     </a>
     <a href="{{site.baseurl}}/rpgv0.0" style="text-decoration: none;">
-        <div style="background-color: #FF0000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+        <div style="background-color: #ff5975; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
             Turtle v0.0
         </div>
     </a>
     <a href="{{site.baseurl}}/rpgv0.1" style="text-decoration: none;">
-        <div style="background-color: #FF8800; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+        <div style="background-color: #ffb459; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
             Turtle v0.1
         </div>
     </a>
     <a href="{{site.baseurl}}/rpgv0.2" style="text-decoration: none;">
-        <div style="background-color: #FFFF00; color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+        <div style="background-color: #ffec59; color: black; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
             Turtle v0.2
         </div>
     </a>
 </div>
 
+### What I worked on during Sprint 2
+
+<div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <a href="{{site.baseurl}}/notebooks/fundamentals/variables" style="text-decoration: none;">
+        <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Variables I/O
+        </div>
+    </a>
 
 ### College Articulation
 
@@ -256,9 +264,9 @@ Here is my progress through game coding, click to see these online
     </a>
 </div>
 
-
+<!--
 <div>
-    <!-- notice how tags can be put INSIDE eachother -->
+    <!-- notice how tags can be put INSIDE eachother
     <p>Test text to go with my text button</p>
     <button>test button</button>
 </div>
@@ -269,6 +277,7 @@ Here is my progress through game coding, click to see these online
   <a href="https://www.nytimes.com/games/wordle/index.html">Wordle</a>
   <p>Just links to some casual games that pretty much everybody already knows about but it's here.</p>
 </div>
+-->
 
 <!-- Use this script to add comments to your blog posts manually -->
 
