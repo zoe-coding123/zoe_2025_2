@@ -195,7 +195,7 @@ My journey starts here.
 ### Development Environment
 
 > Coding starts with tools, explore these tools and procedures with a click.
-
+<br>
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
     <a href="https://github.com/zoe-coding123/zoe_2025_2">
         <img src="https://img.shields.io/badge/GitHub-181717?style=for-the-badge&logo=github&logoColor=white" alt="GitHub">
@@ -211,9 +211,11 @@ My journey starts here.
     </a>
 </div>
 
+<br>
+
 ### Game Progress
 
-Here is my progress through game coding, click to see these online
+Here is my progress through game coding, click to see these online.
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
     <a href="{{site.baseurl}}/snake" style="text-decoration: none;">
@@ -238,14 +240,26 @@ Here is my progress through game coding, click to see these online
     </a>
 </div>
 
-### What I worked on during Sprint 2
+<br>
+
+### Work for Sprint 2
+
+What I worked on during Sprint 2.
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <a href="{{site.baseurl}}/notebooks/fundamentals/variables" style="text-decoration: none;">
+    <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/Sprint2/2024-09-30-variables_IO.ipynb" style="text-decoration: none;">
         <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
             Variables I/O
         </div>
     </a>
+    <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/Sprint2/2024-09-30-variables_IO.ipynb" style="text-decoration: none;">
+        <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+            Variables I/O
+        </div>
+    </a>
+</div>
+
+<br>
 
 ### College Articulation
 
