@@ -247,15 +247,20 @@ Here is my progress through game coding, click to see these online.
 What I worked on during Sprint 2.
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
+    <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/A-Game-Intro-RPG/2023-09-21-game_animations-json-object.ipynb" style="text-decoration: none;">
+      <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+          JSON Object
+      </div>
+    </a>  
     <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/Sprint2/2024-09-30-variables_IO.ipynb" style="text-decoration: none;">
-        <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-            Variables I/O
-        </div>
+      <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+          Variables I/O
+      </div>
     </a>
-    <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/Sprint2/2024-09-30-variables_IO.ipynb" style="text-decoration: none;">
-        <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
-            Variables I/O
-        </div>
+    <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/Sprint2/Popcorn_hack_1.ipynb" style="text-decoration: none;">
+      <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+          Data Types and Operators
+      </div>
     </a>
 </div>
 
