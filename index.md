@@ -203,7 +203,7 @@ My journey starts here.
     <a href="https://zoe-coding123.github.io/zoe_2025_2">
         <img src="https://img.shields.io/badge/GitHub%20Pages-327FC7?style=for-the-badge&logo=github&logoColor=white" alt="GitHub Pages">
     </a>
-    <a href="{{site.baseurl}}/kasm/quick/setup">
+    <a href="https://nighthawkcoders.github.io/portfolio_2025/devops/tools/setup">
         <img src="https://img.shields.io/badge/Ubuntu-E95420?style=for-the-badge&logo=ubuntu&logoColor=white" alt="Ubuntu">
     </a>
     <a href="https://vscode.dev/">
@@ -258,8 +258,18 @@ What I worked on during Sprint 2.
       </div>
     </a>
     <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/Sprint2/Popcorn_hack_1.ipynb" style="text-decoration: none;">
-      <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+      <div style="background-color: red; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
           Data Types and Operators
+      </div>
+    </a>
+    <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/Sprint2/Popcorn_hack_2.ipynb" style="text-decoration: none;">
+      <div style="background-color: purple; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+          Data Type Popcorn Hack #2
+      </div>
+    </a>
+    <a href="https://github.com/zoe-coding123/zoe_2025_2/blob/main/_notebooks/Sprint2/Popcorn_hack_3.ipynb" style="text-decoration: none;">
+      <div style="background-color: teal; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+          Data Type Popcorn Hack #3
       </div>
     </a>
 </div>
@@ -271,13 +281,13 @@ What I worked on during Sprint 2.
 > Here is my preparation for college topics, click to review my blogs
 
 <div style="display: flex; flex-wrap: wrap; gap: 10px;">
-    <a href="{{site.baseurl}}/notebooks/fundamentals/variables" style="text-decoration: none;">
+    <a href="{{site.baseurl}}/csse/javascript/fundamentals/variables/" style="text-decoration: none;">
         <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
             Variables I/O
         </div>
     </a>
     <a href="{{site.baseurl}}/csse/javascript/fundamentals/data-types/" style="text-decoration: none;">
-        <div style="background-color: #FF0000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
+        <div style="background-color: #000000; color: white; padding: 10px 20px; border-radius: 5px; font-weight: bold;">
             Data Types
         </div>
     </a>
