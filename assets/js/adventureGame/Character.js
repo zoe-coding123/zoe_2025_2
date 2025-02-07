@@ -133,14 +133,25 @@ class Character extends GameObject {
     
             // Clear the canvas before drawing
             this.ctx.clearRect(0, 0, this.canvas.width, this.canvas.height);
-    
-            // Draw the current frame of the sprite sheet
-            this.ctx.drawImage(
-                this.spriteSheet,
-                frameX, frameY, frameWidth, frameHeight, // Source rectangle
-                0, 0, this.canvas.width, this.canvas.height // Destination rectangle
-            );
-    
+   
+            if (this.spriteData.flip) {
+                this.ctx.save();
+                this.ctx.scale(-1, 1); // Flip horizontally
+                this.ctx.drawImage(
+                    this.spriteSheet,
+                    frameX, frameY, frameWidth, frameHeight, // Source rectangle
+                    -this.canvas.width, 0, this.canvas.width, this.canvas.height // Destination rectangle, adjust x position
+                );
+                this.ctx.restore();
+            } else {
+                // Draw the current frame of the sprite sheet
+                this.ctx.drawImage(
+                    this.spriteSheet,
+                    frameX, frameY, frameWidth, frameHeight, // Source rectangle
+                    0, 0, this.canvas.width, this.canvas.height // Destination rectangle
+                );
+            }
+
             // Update the frame index for animation at a slower rate
             this.frameCounter++;
             if (this.frameCounter % this.animationRate === 0) {

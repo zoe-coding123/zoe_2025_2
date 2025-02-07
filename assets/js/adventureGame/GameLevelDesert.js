@@ -122,6 +122,7 @@ class GameLevelDesert {
         orientation: {rows: 3, columns: 6 },
         down: {row: 1, start: 0, columns: 6 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
+        flip: true,
         // Linux command quiz
         quiz: { 
           title: "Jupyter Notebook Command Quiz",
@@ -139,7 +140,7 @@ class GameLevelDesert {
           ] 
         }
       };
-
+ 
   /*  // NPC data for HTML Hank
 const sprite_src_htmlhank = path + "/images/gamify/htmlhank.png"; // be sure to include the path
 const sprite_data_htmlhank = {
