@@ -29,3 +29,17 @@ When trying to change the player sprite and when trying to change the level endi
 I'm pretty sure there's still plenty of things I need to learn/don't know but I do feel I've learned from interacting and trying to change the game. It helped give me a better understanding of game code and how it's organized. 
 
 <br>
+<br>
+
+## Personal Journal
+
+1/14/25
+
+Me and my other team members each have notebook for our help system. Currently we're trying to solve an issue where we can't see one of our team member's notebooks. I learned a bit about branches but were still struggling with fixing the issue even after trying to merge his branch with the main branch. I helped fix an error that showed up when trying to merge the branches that I had previously gotten myself.
+But we still can't see his notebook.
+
+1/15/25
+
+Earlier today I made a pull request for our help system notebooks, but I couldn't include Kian's notebook because I still couldn't see it.
+We have done a bit more planning and now have more of an idea of what we are going to try to do.
+
