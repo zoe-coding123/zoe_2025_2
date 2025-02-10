@@ -4,7 +4,7 @@ import Background from './Background.js';
 import Player from './Player.js';
 import Npc from './Npc.js';
 
-class GameLevelDesert {
+class GameLevelIce {
   constructor(path) {
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
@@ -14,11 +14,11 @@ class GameLevelDesert {
 
 
     // Background data
-    const image_src_desert = path + "/images/gamify/desert.jpg"; // be sure to include the path
-    const image_data_desert = {
-        name: 'desert',
+    const image_src_ice = path + "/images/gamify/icearea.png"; // be sure to include the path
+    const image_data_ice = {
+        name: 'Ice Area',
         greeting: "Welcome to the desert!  It is hot and dry here, but there are many adventures to be had!",
-        src: image_src_desert,
+        src: image_src_ice,
         pixels: {height: 599, width: 1060}
     };
 
@@ -33,7 +33,7 @@ class GameLevelDesert {
         SCALE_FACTOR: CHILLGUY_SCALE_FACTOR,
         STEP_FACTOR: 1000,
         ANIMATION_RATE: 50,
-        INIT_POSITION: { x: 0, y: height - (height/4) }, 
+        INIT_POSITION: { x: 0, y: height - (height/3.5) }, 
         pixels: {height: 384, width: 512},
         orientation: {rows: 3, columns: 4 },
         down: {row: 0, start: 0, columns: 3 },
@@ -45,7 +45,7 @@ class GameLevelDesert {
     };
 
 
-    /* // NPC data for Tux 
+    // NPC data for Tux 
     const sprite_src_tux = path + "/images/gamify/tux.png"; // be sure to include the path
     const sprite_data_tux = {
         id: 'Tux',
@@ -54,10 +54,11 @@ class GameLevelDesert {
         SCALE_FACTOR: 8,  // Adjust this based on your scaling needs
         ANIMATION_RATE: 50,
         pixels: {height: 256, width: 352},
-        INIT_POSITION: { x: (width / 2), y: (height / 2)},
+        INIT_POSITION: { x: (width / 1.5), y: (height / 1.3)},
         orientation: {rows: 8, columns: 11 },
-        down: {row: 5, start: 0, columns: 3 },  // This is the stationary npc, down is default 
+        down: {row: 0, start: 0, columns: 1 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
+        flip: true,
         // Linux command quiz
         quiz: { 
           title: "Linux Command Quiz",
@@ -78,7 +79,7 @@ class GameLevelDesert {
 
 
 
-      // NPC data for Octocat
+      /* // NPC data for Octocat
       const sprite_src_octocat = path + "/images/gamify/octocat.png"; // be sure to include the path
       const sprite_data_octocat = {
         id: 'Octocat',
@@ -109,7 +110,7 @@ class GameLevelDesert {
         }
     } */
   
-    // NPC data for Robot
+    /* // NPC data for Robot
     const sprite_src_robot = path + "/images/gamify/robot.png"; // be sure to include the path
     const sprite_data_robot = {
         id: 'Robot',
@@ -174,13 +175,13 @@ const sprite_data_htmlhank = {
 
     // List of objects defnitions for this level
     this.objects = [
-      { class: Background, data: image_data_desert },
+      { class: Background, data: image_data_ice },
       { class: Player, data: sprite_data_chillguy },
-      { class: Npc, data: sprite_data_robot },
+      { class: Npc, data: sprite_data_tux },
      // { class: Npc, data: sprite_data_htmlhank }, 
     ];
   }
 
 }
 
-export default GameLevelDesert;
+export default GameLevelIce;

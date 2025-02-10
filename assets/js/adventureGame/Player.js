@@ -1,4 +1,5 @@
 import GameEnv from './GameEnv.js';
+import GameControl from './GameControl.js';
 import Character from './Character.js';
 
 // Define non-mutable constants as defaults
@@ -41,6 +42,16 @@ class Player extends Character {
     }
 
     handleKeyDown({ keyCode }) {
+        console.log("Current Level Index: ", GameControl.currentLevelIndex);
+
+        // Check if it is first/map level, otherwise restrict vertical movement
+        if (GameControl.currentLevelIndex !== 0) {
+            if (keyCode === this.keypress.up || keyCode === this.keypress.down) {
+                console.log("Vertical movement restricted");
+                return; // Restrict vertical movement
+            }
+        }
+
         switch (keyCode) {
             case this.keypress.up:
                 this.velocity.y -= this.yVelocity;
