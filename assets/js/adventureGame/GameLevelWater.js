@@ -6,6 +6,7 @@ import Player from './Player.js';
 
 class GameLevelWater {
   constructor(path) {
+    this.name = 'GameLevelWater';
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
 

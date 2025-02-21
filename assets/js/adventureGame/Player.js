@@ -25,6 +25,8 @@ class Player extends Character {
      */
     constructor(data = null) {
         super(data);
+        this.id = data.id || 'Player_' + Math.random().toString(36).substring(7);
+        console.log('%[GameControl] New Player created: ' + this.id, 'color: green; font-weight: bold;');
         this.keypress = data?.keypress || {up: 87, left: 65, down: 83, right: 68};
         this.bindEventListeners();
     }
@@ -45,7 +47,8 @@ class Player extends Character {
         console.log("Current Level Index: ", GameControl.currentLevelIndex);
 
         // Check if it is first/map level, otherwise restrict vertical movement
-        if (GameControl.currentLevelIndex !== 0) {
+        const currentLevel = GameEnv.currentLevel;
+        if (currentLevel && currentLevel.name !== "GameLevelMap") {
             if (keyCode === this.keypress.up || keyCode === this.keypress.down) {
                 console.log("Vertical movement restricted");
                 return; // Restrict vertical movement

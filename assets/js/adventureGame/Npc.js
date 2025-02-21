@@ -4,6 +4,33 @@ import Prompt from "./Prompt.js";
 class Npc extends Character {
     constructor(data = null) {
         super(data);
+        this.id = data.id || 'NPC_' + Math.random().toString(36).substring(7);
+        console.log('%[GameControl] New NPC created: ' + this.id, 'color: green; font-weight: bold;');
+        //console.log('Npc constructor called with data:', data);
+
+        this.targetLevel = data.targetLevel;
+        this.position = data.INIT_POSITION;
+        this.hitbox = {
+            widthPercentage: data.hitbox.widthPercentage || 1,
+            heightPercentage: data.hitbox.heightPercentage || 1
+        };
+        this.collisionWidth = data.pixels.width * this.hitbox.widthPercentage;
+        this.collisionHeight = data.pixels.height * this.hitbox.heightPercentage;
+
+        if (isNaN(this.collisionWidth) || isNaN(this.collisionHeight)) {
+            //console.warn('Hitbox dimensions resulted in NaN, defaulting to pixel dimensions.');
+            this.collisionWidth = data.pixels.width;
+            this.collisionHeight = data.pixels.height;
+        }
+
+        //console.log('Initialized Npc with data:', data);
+        //console.log('Npc position:', this.position);
+       // console.log('Npc hitbox:', this.hitbox);
+        //console.log('Npc collision dimensions:', this.collisionWidth, this.collisionHeight);
+
+        //console.log('Final NPC collision dimensions:', this.collisionWidth, this.collisionHeight);
+        GameEnv.gameObjects.push(this);
+
         this.quiz = data?.quiz?.title; // Quiz title
         this.questions = Prompt.shuffleArray(data?.quiz?.questions || []); // Shuffle questions
         this.currentQuestionIndex = 0; // Start from the first question

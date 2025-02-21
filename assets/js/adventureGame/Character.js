@@ -241,8 +241,11 @@ class Character extends GameObject {
         const index = GameEnv.gameObjects.indexOf(this);
         if (index !== -1) {
             // Remove the canvas from the DOM
+            if (this.canvas.parentNode) {
             this.canvas.parentNode.removeChild(this.canvas);
             GameEnv.gameObjects.splice(index, 1);
+        }
+        GameEnv.gameObjects.splice(index, 1);
         }
     }
     

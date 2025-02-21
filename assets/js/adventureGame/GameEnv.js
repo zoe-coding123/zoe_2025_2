@@ -127,6 +127,14 @@ class GameEnv {
     static clear() {
         this.ctx.clearRect(0, 0, this.innerWidth, this.innerHeight);
     }
+
+    static removeObject(obj) {
+        const index = this.gameObjects.indexOf(obj);
+        if (index > -1) {
+            this.gameObjects.splice(index, 1);
+            console.log('%c[GameEnv] Removed object: ' + obj.id, 'color: magenta; font-weight: bold;');
+        }
+    }
 }
 
 export default GameEnv;

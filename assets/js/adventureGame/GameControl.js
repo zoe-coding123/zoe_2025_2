@@ -4,6 +4,7 @@ import GameLevelMap from './GameLevelMap.js';
 import GameLevelDesert from './GameLevelDesert.js'
 import GameLevelMountain from './GameLevelMountain.js';
 import GameLevelIce from './GameLevelIce.js';
+import Player from './Player.js';
 import { getStats } from "./StatsManager.js";
 
 
@@ -50,6 +51,7 @@ const GameControl = {
     currentLevelIndex: 0,
     levelClasses: [],
     path: '',
+    transitionNPCS: [],
 
     start: function(path) {
         GameEnv.create();
@@ -59,30 +61,106 @@ const GameControl = {
         this.addExitKeyListener();
         this.loadLevel();
     },
-    
-    loadLevel: function() {
-        if (this.currentLevelIndex >= this.levelClasses.length) {
+
+    loadLevel: function(targetLevelIndex = null) {
+        console.log('Entering loadLevel method')
+        const levelIndex = targetLevelIndex !== null ? targetLevelIndex : this.currentLevelIndex;
+        
+        if (levelIndex >= this.levelClasses.length) {
             this.stopTimer();
             return;
         }
         GameEnv.continueLevel = true;
         GameEnv.gameObjects = [];
         this.currentPass = 0;
-        const LevelClass = this.levelClasses[this.currentLevelIndex];
+        
+        const LevelClass = this.levelClasses[levelIndex];
         const levelInstance = new LevelClass(this.path);
+        
+        // console.log('Created levelInstance:', levelInstance);
+
+        GameEnv.currentLevel = levelInstance;
         this.loadLevelObjects(levelInstance);
+
+        this.transitionNPCS = [];
+        this.transitionNPCS = levelInstance.transitionNPCS || [];
+        console.log('Updated transitionNPCS in loadLevel:', this.transitionNPCS);
+
+        if (targetLevelIndex === null) {
+            this.currentLevelIndex++;
+        }
     },
     
+    clearGameObjects: function() {
+        console.log('%c[GameControl] Clearing game objects', 'color: blue; font-weight: bold');
+        GameEnv.gameObjects.forEach(obj => {
+            if (obj.destory) {
+                obj.destroy();
+            } else {
+                console.warn('%c[GameControl] Object without destory method: ${obj.id}', 'color: pink; font-weight: bold;', obj);
+            }
+        });
+        
+        GameEnv.gameObjects = [];
+        this.transitionNPCS = [];
+        console.log('%c[GameControl] Game objects after clearing: ', 'color: blue;', GameEnv.gameObjects);
+    },
+
     loadLevelObjects: function(gameInstance) {
+        console.log('%[GameControl] loadLevelObjects() called', 'color: purple; font-weight: bold;');
         this.initStatsUI();
         // Instantiate the game objects
-        for (let object of gameInstance.objects) {
+        GameEnv.gameObjects = gameInstance.objects.map(object => {
             if (!object.data) object.data = {};
-            new object.class(object.data);
-        }
+            const newObject = new object.class(object.data);
+            console.log('%c[GameControl] Instantiated new object: ' + newObject.id, 'color: green; font-weight: bold;');
+            return newObject;
+        });
+
+        this.transitionNPCS = [];
+        this.transitionNPCS = gameInstance.transitionNPCS || [];
+        GameEnv.gameObjects = [...GameEnv.gameObjects, ...this.transitionNPCS];
+        //console.log('%c[GameControl] Updated transitionNPCS in loadLevelObjects:', 'color: blue;', this.transitionNPCS);
+        console.log('%c[GameControl] Game objects after loading level objects:', 'color: green;', GameEnv.gameObjects);
         // Start the game loop
         this.gameLoop();
         getStats();
+    },
+    
+    handleNPCTransition: function(targetLevel) {
+        const targetLevelIndex = this.levelClasses.findIndex(LevelClass => LevelClass.name === targetLevel);
+        
+        if (targetLevelIndex !== -1) {
+            console.log('%c[GameControl] NPC transition to level: ' + targetLevel, 'color: purple; font-weight: bold;');
+            GameEnv.continueLevel = false;
+            this.handleLevelEnd();
+            this.loadLevel(targetLevelIndex);
+        } else {
+            console.error(`Level ${targetLevel} not found.`);
+        }
+    },
+
+    checkTransitions: function() {
+        const player = GameEnv.gameObjects.find(obj => obj instanceof Player); // Adjust as needed
+        
+        if (player) {
+            //console.log('Player position:', player.position);
+            //console.log('transitionNPCS:', this.transitionNPCS);
+
+            this.transitionNPCS.forEach(npc => {
+                //console.log('Checking transition for NPC:', npc);
+                if (
+                    player.position.x < npc.position.x + npc.hitbox.width &&
+                    player.position.x + player.hitbox.width > npc.position.x &&
+                    player.position.y < npc.position.y + npc.hitbox.height &&
+                    player.position.y + player.hitbox.height > npc.position.y &&
+                    npc.targetLevel
+                ) {
+                    console.log(`Transitioning to ${npc.targetLevel}`);
+                    this.handleNPCTransition(npc.targetLevel);
+                }
+            });    
+        }
     },
 
     gameLoop: function() {
@@ -96,6 +174,9 @@ const GameControl = {
         for (let object of GameEnv.gameObjects) {
             object.update();  // Update the game objects
         }
+        //console.log('Current transitionNPCS before checkTransitions:', this.transitionNPCS);
+        this.checkTransitions();
+        //console.log('Current transitionNPCS after checkTransitions:', this.transitionNPCS);
         this.handleLevelStart();
         // Recursively call this function at animation frame rate
         requestAnimationFrame(this.gameLoop.bind(this));
@@ -111,6 +192,7 @@ const GameControl = {
     },
 
     handleLevelEnd: function() {
+        console.log('%c[GameControl] handleLevelEnd() called', 'color: purple; font-weight: bold;');
         // More levels to play 
         if (this.currentLevelIndex < this.levelClasses.length - 1) {
             alert("Level ended.");
@@ -119,12 +201,23 @@ const GameControl = {
         }
         // Tear down the game environment
         for (let index = GameEnv.gameObjects.length - 1; index >= 0; index--) {
-            GameEnv.gameObjects[index].destroy();
+            const obj = GameEnv.gameObjects[index];
+            if (obj && typeof obj.destroy === 'function') {
+            obj.destroy();
+            console.log(`%c[GameControl] Destroyed object: ${obj.id}`, 'color: red; font-weight: bold;');
+            } else {
+            console.warn('Object does not have a destroy method:', obj);
+            }    
         }
+
+
+        console.log('%c[GameControl] Remaining objects after tear down:', 'color: blue; font-weight: bold;', GameEnv.gameObjects);
+
         // Move to the next level
         this.currentLevelIndex++;
+        console.log('%c[GameControl] Moving to level:', 'color: green; font-weight: bold;', this.currentLevelIndex);
         // Go back to the loadLevel function
-        this.loadLevel();
+        this.loadLevel(this.currentLevelIndex);
     },
     
     resize: function() {
@@ -134,6 +227,28 @@ const GameControl = {
         for (let object of GameEnv.gameObjects) {
             object.resize(); // Resize the game objects
         }
+        this.recalculateTransitionAreas();
+    },
+
+    recalculateTransitionAreas: function() {
+        if (!this.transitionNPCS) {
+            this.transitionNPCS = [];
+        }
+
+        const gameWidth = GameEnv.innerWidth;
+        const gameHeight = GameEnv.innerHeight;
+    
+        // Adjust NPC positions and hitboxes based on new game dimensions
+        this.transitionNPCS.forEach(npc => {
+            console.log('Before resizing:', npc.position, npc.hitbox);
+            npc.position.x = (npc.position.x / gameWidth) * GameEnv.innerWidth;
+            npc.position.y = (npc.position.y / gameHeight) * GameEnv.innerHeight;
+            npc.hitbox.width = (npc.hitbox.width / gameWidth) * GameEnv.innerWidth;
+            npc.hitbox.height = (npc.hitbox.height / gameHeight) * GameEnv.innerHeight;
+            console.log('After resizing:', npc.position, npc.hitbox);
+        });
+    
+        console.log('Transition areas recalculated based on new game dimensions.');
     },
 
     addExitKeyListener: function() {

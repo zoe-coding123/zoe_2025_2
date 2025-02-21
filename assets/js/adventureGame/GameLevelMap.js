@@ -9,6 +9,9 @@ import BackgroundObject from './BackgroundObject.js';
 
 class GameLevelMap {
   constructor(path) {
+    console.log('GameLevelMap constructor called');
+    this.path = path;
+    this.name = 'GameLevelMap';
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
     // Values dependent on GameEnv.create()
@@ -70,6 +73,7 @@ class GameLevelMap {
         orientation: {rows: 8, columns: 11 },
         down: {row: 5, start: 0, columns: 3 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
+        targetLevel: 'GameLevelIce',
         // Linux command quiz
         quiz: { 
           title: "Linux Command Quiz",
@@ -103,6 +107,7 @@ class GameLevelMap {
         orientation: {rows: 1, columns: 4 },
         down: {row: 0, start: 0, columns: 3 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.1 },
+        targetLevel: 'GameLevelWater',
         // GitHub command quiz 
         quiz: { 
           title: "GitHub Command Quiz",
@@ -134,6 +139,7 @@ class GameLevelMap {
         orientation: {rows: 3, columns: 7 },
         down: {row: 1, start: 0, columns: 6 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
+        targetLevel: 'GameLevelMountain',
         // Linux command quiz
         quiz: { 
           title: "Jupyter Notebook Command Quiz",
@@ -164,6 +170,7 @@ class GameLevelMap {
         orientation: {rows: 3, columns: 6 },
         down: {row: 1, start: 0, columns: 6 },  // This is the stationary npc, down is default 
         hitbox: { widthPercentage: 0.1, heightPercentage: 0.2 },
+        targetLevel: 'GameLevelDesert',
         // Linux command quiz
         quiz: { 
           title: "Jupyter Notebook Command Quiz",
@@ -218,14 +225,32 @@ const sprite_data_htmlhank = {
       { class: Background, data: image_data_map },
       { class: BackgroundObject, data: image_data_icesheet },
       { class: Player, data: sprite_data_chillguy },
+     // { class: Npc, data: sprite_data_htmlhank }, 
+    ];
+
+    this.transitionNPCS = [
       { class: Npc, data: sprite_data_tux },
       { class: Npc, data: sprite_data_nomad },
       { class: Npc, data: sprite_data_octocat },
       { class: Npc, data: sprite_data_robot },
-     // { class: Npc, data: sprite_data_htmlhank }, 
-    ];
-  }
+    ].map(npcData => {
+      const npcDataFormatted = {
+        ...npcData.data,
+        targetLevel: npcData.data.targetLevel,
+        INIT_POSITION: npcData.data.INIT_POSITION,
+        hitbox: npcData.data.hitbox,
+        pixels: npcData.data.pixels
+      };
 
+      console.log('Initializing NPC with data:', npcDataFormatted);
+      const npc = new npcData.class(npcDataFormatted);
+      console.log('Initialized NPC:', npc);
+
+      return npc;
+    
+    });
+    console.log('Initialized transitionNPCS in GameLevelMap:', this.transitionNPCS);
+  };
 }
 
 export default GameLevelMap;

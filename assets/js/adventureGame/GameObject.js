@@ -1,4 +1,5 @@
 import GameEnv from './GameEnv.js';
+import GameControl from './GameControl.js'; 
 
 /**
  * The GameObject class serves as a base class for all game objects.
@@ -110,6 +111,9 @@ class GameObject {
         const otherWidthReduction = otherRect.width * (other.hitbox?.widthPercentage || 0.0);
         const otherHeightReduction = otherRect.height * (other.hitbox?.heightPercentage || 0.0);
 
+        console.log('This object hitbox:', { widthReduction: thisWidthReduction, heightReduction: thisHeightReduction });
+        console.log('Other object hitbox:', { widthReduction: otherWidthReduction, heightReduction: otherHeightReduction });
+
         // Build hitbox by subtracting reductions from the left, right, and top
         const thisLeft = thisRect.left + thisWidthReduction;
         const thisTop = thisRect.top + thisHeightReduction;
@@ -120,6 +124,9 @@ class GameObject {
         const otherTop = otherRect.top + otherHeightReduction;
         const otherRight = otherRect.right - otherWidthReduction;
         const otherBottom = otherRect.bottom;
+
+        console.log('NPC hitbox coordinates:', { thisLeft, thisRight, thisTop, thisBottom });
+        console.log('Other object hitbox coordinates:', { otherLeft, otherRight, otherTop, otherBottom });
 
         // Determine hit and touch points of hit
         const hit = (
@@ -149,6 +156,13 @@ class GameObject {
         };
 
         this.collisionData = { hit, touchPoints };
+
+        console.log('Collision data:', this.collisionData);
+
+        if (hit && other.targetLevel) {
+            console.log(`Transitioning to ${other.targetLevel}`);
+            GameControl.handleNPCTransition(other.targetLevel);
+        }
     }
 
     /**

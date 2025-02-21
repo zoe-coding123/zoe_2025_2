@@ -6,6 +6,8 @@ import Npc from './Npc.js';
 
 class GameLevelDesert {
   constructor(path) {
+    this.name = 'GameLevelDesert'
+    this.path = path;
     const header = document.querySelector('header');
     const footer = document.querySelector('footer');
     // Values dependent on GameEnv.create()
