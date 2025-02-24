@@ -5,6 +5,8 @@ import GameLevelDesert from './GameLevelDesert.js'
 import GameLevelMountain from './GameLevelMountain.js';
 import GameLevelIce from './GameLevelIce.js';
 import Player from './Player.js';
+import GameState from './GameState.js';
+//import { Prompt } from './Prompt.js';
 import { getStats } from "./StatsManager.js";
 
 
@@ -165,8 +167,12 @@ const GameControl = {
 
     gameLoop: function() {
         // Base case: leave the game loop 
-        if (!GameEnv.continueLevel) {
-            this.handleLevelEnd();
+        if (!GameEnv.continueLevel || GameState.quizCompleted) {
+            if (GameState.quizCompleted) {
+                this.routeToMapLevel();
+            } else {
+                this.handleLevelEnd();  
+            }
             return;
         }
         // Nominal case: update the game objects 
@@ -177,6 +183,7 @@ const GameControl = {
         //console.log('Current transitionNPCS before checkTransitions:', this.transitionNPCS);
         this.checkTransitions();
         //console.log('Current transitionNPCS after checkTransitions:', this.transitionNPCS);
+        this.checkQuizCompletion();
         this.handleLevelStart();
         // Recursively call this function at animation frame rate
         requestAnimationFrame(this.gameLoop.bind(this));
@@ -186,10 +193,21 @@ const GameControl = {
         // First time message for level 0, delay 10 passes
         if (this.currentLevelIndex === 0 && this.currentPass === 10) {
             alert("Start Level.");
+            //this.enterLevel(GameEnv.currentLevel);
         }
         // Recursion tracker
         this.currentPass++;
     },
+
+    /*enterLevel: function(targetLevel) {
+        if (GameState.levelsVisited[targetLevel]) {
+            console.log(`You can't go back to ${targetLevel}, it's already visited`);
+            return;
+        }
+
+        console.log(`Entering ${targetLevel}`);
+        GameState.levelsVisited[targetLevel] = true;
+    }, */
 
     handleLevelEnd: function() {
         console.log('%c[GameControl] handleLevelEnd() called', 'color: purple; font-weight: bold;');
@@ -219,7 +237,31 @@ const GameControl = {
         // Go back to the loadLevel function
         this.loadLevel(this.currentLevelIndex);
     },
+
+    checkQuizCompletion: function() {
+        if (GameState.quizCompleted) {
+            this.handleLevelEnd();
+        }
+    },
     
+    routeToMapLevel: function() {
+        console.log("Routing to map level")
+        GameEnv.clear();
+    
+        for (let index = GameEnv.gameObjects.length - 1; index >= 0; index--) {
+            const obj = GameEnv.gameObjects[index];
+            if (obj && typeof obj.destroy === 'function') {
+            obj.destroy();
+            console.log(`%c[GameControl] Destroyed object: ${obj.id}`, 'color: red; font-weight: bold;');
+            } else {
+            console.warn('Object does not have a destroy method:', obj);
+            }    
+        }
+        this.currentLevelIndex = 0;
+        GameState.quizCompleted = false;
+        this.loadLevel(this.currentLevelIndex);
+    },
+
     resize: function() {
         // Resize the game environment
         GameEnv.resize();

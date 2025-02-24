@@ -1,3 +1,5 @@
+import GameState from './GameState.js';
+
 const Prompt = {
     isOpen: false,
     dim: false,
@@ -112,6 +114,8 @@ const Prompt = {
         alert("Your answers have been submitted!");
         Prompt.isOpen = false;
         Prompt.backgroundDim.remove();
+
+        GameState.quizCompleted = true;
     },
     
     

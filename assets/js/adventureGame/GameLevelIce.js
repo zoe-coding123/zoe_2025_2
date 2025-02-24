@@ -26,7 +26,6 @@ class GameLevelIce {
 
     const image_src_snow = path + "/images/gamify/snow.png";
     const image_data_snow = {
-      name: 'snow',
       src: image_src_snow,
       pixels: {height: 477, width: 477}
     };
@@ -184,7 +183,7 @@ const sprite_data_htmlhank = {
     // List of objects defnitions for this level
     this.objects = [
       { class: Background, data: image_data_ice },
-      { class: BackgroundParallax, data: image_data_snow },
+      //{ class: BackgroundParallax, data: image_data_snow },
       { class: Player, data: sprite_data_chillguy },
       { class: Npc, data: sprite_data_tux },
      // { class: Npc, data: sprite_data_htmlhank }, 
