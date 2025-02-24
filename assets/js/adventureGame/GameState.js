@@ -1,6 +1,6 @@
 const GameState = {
-    quizCompletedFalse: false
-    //levelsVisited: {}
+    quizCompletedFalse: false,
+    levelsVisited: {}
 };
 
 export default GameState;
