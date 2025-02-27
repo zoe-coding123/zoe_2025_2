@@ -140,7 +140,7 @@ class GameLevelMountain {
         }
     } */
   
-    // NPC data for Robot
+    /* NPC data for Robot
     const sprite_src_robot = path + "/images/gamify/robot.png"; // be sure to include the path
     const sprite_data_robot = {
         id: 'Robot',
