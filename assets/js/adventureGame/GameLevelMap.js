@@ -10,6 +10,7 @@ import BackgroundObject from './BackgroundObject.js';
 class GameLevelMap {
   constructor(path) {
     console.log('GameLevelMap constructor called');
+    alert('Talk to and take the quizzes of the different characters to escape this world.')
     this.path = path;
     this.name = 'GameLevelMap';
     const header = document.querySelector('header');
