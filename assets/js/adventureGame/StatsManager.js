@@ -11,7 +11,7 @@ export function getStats() {
         questionsAnswered: `${javaURI}/rpg_answer/getQuestionsAnswered/${personId}`
     };
 
-    for (let [key, url] of Object.entries(endpoints)) {
+   for (let [key, url] of Object.entries(endpoints)) {
         fetch(url, fetchOptions)
             .then(response => response.json())
             .then(data => {
@@ -52,7 +52,11 @@ export function getQuestionsAnswered() {
     fetch(`${javaURI}/rpg_answer/getQuestionsAnswered/1`, fetchOptions)
         .then(response => response.json())
         .then(data => {
+            console.log("questions answered data", data);
             document.getElementById("questionsAnswered").innerText = data ?? 0;
+            
         })
         .catch(err => console.error("Error fetching questions answered:", err));
+    
+        console.log("question answered data", data);
 }
